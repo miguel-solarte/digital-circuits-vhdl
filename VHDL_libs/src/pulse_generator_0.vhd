@@ -41,7 +41,7 @@ begin
 
             when s1 =>
                 if input = '1' then
-                    output <= '0';
+                    output <= '0'; 
                     nxtstate <= s1;
                 else
                     output <= '0';

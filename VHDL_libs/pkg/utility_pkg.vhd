@@ -73,6 +73,21 @@ package utility_pkg is
     );
     end component;
 
+    component MatKeyB4x4_hex is
+
+    generic(
+            div_value : integer := 100000
+    );
+
+    port(
+        clk       : in std_logic;
+        PULS_IN   : in std_logic_vector(3 downto 0);
+        puls_data : out std_logic;
+        PULS_OUT  : out std_logic_vector(3 downto 0);
+        HEX_OUT   : out std_logic_vector(7 downto 0)
+    );
+    end component;
+
     component  MultDigicKeyDisp is
     port(
         clk     : in std_logic;
@@ -80,6 +95,25 @@ package utility_pkg is
         BIT_IN  : in std_logic_vector(3 downto 0);
         BIT_out : out std_logic_vector(15 downto 0)
     );
+    end component;
+
+    component LCD_16x2 is
+        generic(
+            t0 : integer := 4000000; -- 40ms
+            t1 : integer := 3900;    -- 39us
+            t2 : integer := 3700;    -- 37us
+            t3 : integer := 153000;  -- 1.53ms
+            t4 : integer := 4700     -- 47us
+        );
+        port (
+            clk      : in std_logic;
+            rst      : in std_logic;
+            pulse_in : in std_logic;
+            DATA_IN  : in std_logic_vector(7 downto 0);
+            E        : out std_logic;
+            RS_RW    : out std_logic_vector(1 downto 0); 
+            DB7_0    : out std_logic_vector(7 downto 0)
+        );
     end component;
 
     
